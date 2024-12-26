@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoviesApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <style>
+      .notice { 
+        padding: 15px;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        color: #155724;
+        margin: 20px 0;
+        text-align: center;
+        font-weight: bold;
+      }
+      .alert { 
+        padding: 15px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+        color: #721c24;
+        margin: 20px 0;
+        text-align: center;
+        font-weight: bold;
+      }
+      nav {
+        background-color: #f8f9fa;
+        padding: 1em;
+        margin-bottom: 20px;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      nav li {
+        display: inline;
+        margin: 0 2em;
+      }
+      nav a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+      nav a:hover {
+        color: #0056b3;
+      }
+      .container {
+        padding: 2em;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .messages {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><%= link_to 'Movies', movies_path %></li>
+        <li><%= link_to 'Series', series_path %></li>
+        <li><%= link_to 'Documentary Films', documentary_films_path %></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="messages">
+        <% if notice %>
+          <div class="notice">
+            <%= notice %>
+          </div>
+        <% end %>
+        
+        <% if alert %>
+          <div class="alert">
+            <%= alert %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

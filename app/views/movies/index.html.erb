@@ -1,0 +1,7 @@
+<h1>Movies</h1>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><strong><%= movie.name %></strong> - <%= movie.synopsis %> (Directed by: <%= movie.director %>)</li>
+  <% end %>
+</ul>
+<%= link_to 'Add Movie', new_movie_path %>
